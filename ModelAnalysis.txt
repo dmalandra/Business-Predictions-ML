@@ -1,0 +1,15 @@
+**AlphabetSoup Company Business Funding Analysis**
+
+
+The purpose of this analysis was to predict which business funding applicants would have the best chance of success in their ventures.  The best course of action would be to create a neural network machine learning model to predict success based on other application variables.
+
+Prior to compiling the model, tax identification number (EIN) and Company Name variables were removed from the data as they were neither targets nor features to consider.  The target variable for this model was the successful use of funds.  The specific features of the model included application type, classification, ask amount (how much funding the applicant requests), and applicant income.
+
+Due to the large amount of datapoints (34,000) and features, it was prudent to begin to fit the model with a large set of neurons, multiple layers and more robust activation functions.  The first attempt utilized two layers (L1 = 80 neurons, L2 = 30 neurons) with a ReLU activation functions at each level.  The model did not acheive greater than 75% accuracy and loss was very high (56%).
+
+In an attempt to improve the accuracy of the model, I added a third layer and used a Tanh function instead of a ReLU function (L1 = 80, L2 = 50, L3 = 20).  The results were similar to the first attempt, however accuracy just slightly improved.
+
+In my final attempt, I added a fourth hidden layer and modified the number of neurons per layer in an attempt to create more pathways for the model to learn/predict (L1 = 100, L2 = 50, L3 = 25, L4 = 10).  Again, accuracty slightly improved, but did not reach the 75% accuracy threshhold.
+
+In the end, the overall model was able to predict funding success with 72% accuracy (across all three attempts).  Loss was very high (approximately 56% across all models) and accuracy was not sufficient.  Manipulating the number of Epochs likely would not have much affect, as the accuracy and loss changes were quite consistent across Epochs.  For future models, I believe the most probable way to significantly improve accuracy would be to decrease the number of encoded features so there is less interference between features that may not relate to each other.  Another possible idea would be to create more bins to better align with rarities in application or classification variable counts.
+
